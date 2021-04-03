@@ -31,8 +31,9 @@
     <Button
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="parent"
-        android:text=""
+        android:text="@{ viewModel.btnText, default = OK }"
         android:layout_height="wrap_content"
+        android:onClick="@{ viewModel::onClick }"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
