@@ -1,17 +1,20 @@
 package com.example.databinding
 
 import android.view.View
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ViewModel: ViewModel() {
 
-    var textData = "TEST"
+    var textData = MutableLiveData<String>()
 
-    var btnText = "OK"
+    var btnText = MutableLiveData<String>()
+
+    var editText = MutableLiveData<String>()
 
     fun onClick(view: View) {
-        textData = "Text success"
-        btnText = "Done"
+        textData.value = "Text success"
+        btnText.value = "Done"
     }
 
 }

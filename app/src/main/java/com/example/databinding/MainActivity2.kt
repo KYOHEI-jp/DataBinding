@@ -21,5 +21,8 @@ class MainActivity2 : AppCompatActivity() {
         binding.viewModel = viewModel
 
         binding.lifecycleOwner = this
+
+        viewModel.textData.value = "KYOHEI Test Text"
+        viewModel.btnText.value = "OKOKOKOK"
     }
 }
