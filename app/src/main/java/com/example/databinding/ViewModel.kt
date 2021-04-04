@@ -16,6 +16,7 @@ class ViewModel: ViewModel() {
     var editText = MutableLiveData<String>()
     var error = MutableLiveData<String>()
     var emailText = MutableLiveData<String>()
+    var imageUrl = MutableLiveData<String>()
 
     fun onClick(view: View) {
         textData.value = "Text success"
