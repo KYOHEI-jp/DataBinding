@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class ViewModel: ViewModel() {
 
@@ -20,19 +22,25 @@ class ViewModel: ViewModel() {
         btnText.value = "Done"
     }
 
-    val emailTextWatcher: TextWatcher = object : TextWatcher {
-        override fun afterTextChanged(s: Editable?) {
+//    val emailTextWatcher: TextWatcher = object : TextWatcher {
+//        override fun afterTextChanged(s: Editable?) {
+//
+//        }
+//
+//        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//
+//        }
+//
+//        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//            Log.d("Text Watcher :", s.toString())
+//        }
+//
+//    }
 
-        }
-
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-        }
-
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            Log.d("Text Watcher :", s.toString())
-        }
-
+    fun isEmailValid(email: String?): Boolean {
+        val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
+        val pattern: Pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
+        val matcher: Matcher = pattern.matcher(email)
+        return matcher.matches()
     }
-
 }
